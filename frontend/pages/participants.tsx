@@ -8,6 +8,7 @@ import axios from "axios";
 import ParticipationPieChart from "../components/participantsChartPieComponent";
 import CreateParticipant from "../components/createParticipantComponent";
 import "../src/app/globals.css";
+import { addParticipant, getParticipants } from "@/api/participationApi/participationApi";
 
 interface IParticipationProps {
   participants: IParticipant[];
@@ -18,10 +19,7 @@ export default function Participation({ participants }: IParticipationProps) {
     useState<IParticipant[]>(participants);
   const onAddParticipant = async (participant: INewParticipant) => {
     try {
-      const response = await axios.post(
-        "http://localhost:3300/participation/add",
-        participant
-      );
+      await addParticipant(participant);
       await fetchParticipants();
     } catch (error) {
       console.log(error);
@@ -29,8 +27,8 @@ export default function Participation({ participants }: IParticipationProps) {
   };
   const fetchParticipants = async () => {
     try {
-      const response = await axios.get("http://localhost:3300/participation");
-      setReactParticipants(response.data);
+      const participants = await getParticipants();
+      setReactParticipants(participants);
     } catch (error) {
       console.log(error);
     }

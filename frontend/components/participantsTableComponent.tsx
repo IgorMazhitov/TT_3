@@ -10,6 +10,7 @@ import {
 } from "@nextui-org/react";
 import { IParticipant } from "../src/app/interfaces/participant.interface";
 import axios from "axios";
+import { deleteParticipant } from "@/api/participationApi/participationApi";
 
 interface ParticipantsTableProps {
   participants: IParticipant[];
@@ -25,9 +26,7 @@ export default function ParticipantsTable({
   }
   const deleteUser = async (id: number) => {
     try {
-      const response = await axios.delete(
-        `http://localhost:3300/participation/delete/${id}`
-      );
+      await deleteParticipant(id);
       onDelete();
     } catch (error) {
       console.log(error);
