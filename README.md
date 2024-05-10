@@ -4,4 +4,4 @@
 # 2. - Docker compose up
 # 3. - localhost:3300 - BE running
 # 4. - localhost:3000 - FE running
-# STACK: POSTGRESQL | TYPEORM | NESTJS | NEXTJS | NEXTUI | TAILWINDCSS 
+# STACK: POSTGRESQL | TYPEORM | NESTJS | NEXTJS | NEXTUI | TAILWINDCSS | CHARTJS (FOR DOHNUT CHART)
