@@ -36,7 +36,7 @@ export default function CreateParticipant({ addNew }: CreateParticipantProps) {
         type="number"
         label="User Partition Number"
       />
-      <Button onClick={() => handleClick()}> Create </Button>
+      <Button variant="ghost" onClick={() => handleClick()}> Create </Button>
     </div>
   );
 }
