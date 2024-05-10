@@ -6,10 +6,8 @@ import { Percentage } from 'src/entities/percentage.entity';
 import { Participants } from 'src/entities/participants.entity';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Percentage, Participants])
-  ],
+  imports: [TypeOrmModule.forFeature([Percentage, Participants])],
   providers: [ParticipationService],
-  controllers: [ParticipationController]
+  controllers: [ParticipationController],
 })
 export class ParticipationModule {}

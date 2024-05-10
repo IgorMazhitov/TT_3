@@ -12,7 +12,7 @@ async function bootstrap() {
   });
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(appPort, () => {
-    console.log('Server started on http://localhost:' + appPort + '/api');
+    console.log('Server started on http://localhost:' + appPort);
   });
 }
 bootstrap();

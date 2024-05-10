@@ -66,4 +66,30 @@ export class ParticipationService {
       throw new HttpException(error.message, error.status);
     }
   }
+
+  async deleteParticipant(id: number) {
+    try {
+      const participant = await this.participantsRepository.findOneBy({ id });
+      if (!participant) {
+        throw new HttpException('Participant not found', 404);
+      }
+
+      let currentPercentage: Percentage = await this.percentageRepository.findOneBy({id: 1});
+
+      let newPercentage = currentPercentage.value - participant.participation;
+
+      const newPercentageEntity = await this.percentageRepository.save({
+        ...currentPercentage,
+        value: newPercentage,
+      });
+
+      await this.participantsRepository.delete({ id });
+
+      return {
+        newPercentageEntity,
+      };
+    } catch (error) {
+      throw new HttpException(error.message, error.status);
+    }
+  }
 }
