@@ -1,8 +1,9 @@
 import { Doughnut, Pie } from 'react-chartjs-2';
 import { IParticipant } from '../src/app/interfaces/participant.interface';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, plugins } from "chart.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.defaults.plugins.legend.position = 'right'
 
 interface ParticipationPieChartProps {
     participants: IParticipant[];
@@ -32,6 +33,7 @@ function ParticipationPieChart({ participants }: ParticipationPieChartProps) {
       },
     ],
   };
+
 
   return (
     <div className=' w-1/2 h-1/2'>
