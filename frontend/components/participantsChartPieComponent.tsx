@@ -36,7 +36,7 @@ function ParticipationPieChart({ participants }: ParticipationPieChartProps) {
 
 
   return (
-    <div className=' w-1/2 h-1/2'>
+    <div className='w-full md:w-1/2 h-1/2'>
       <Doughnut data={participationData} />
     </div>
   );

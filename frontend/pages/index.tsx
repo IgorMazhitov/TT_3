@@ -3,7 +3,7 @@ import "../src/app/globals.css";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-start items-start p-3 bg-gray-200 min-h-screen">
+    <div className="flex flex-row flex-wrap content-start gap-3 justify-start items-start p-3 bg-gray-200 min-h-screen">
       <Card>
         <CardBody>
           <h2 className="text-gray-900 text-xl">

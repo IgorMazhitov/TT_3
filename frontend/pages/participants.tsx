@@ -34,13 +34,13 @@ export default function Participation({ participants }: IParticipationProps) {
     }
   };
   return (
-    <>
+    <div className="flex flex-col w-screen gap-3 flex-wrap justify-center content-center items-start">
       <CreateParticipant addNew={onAddParticipant} />
-      <div className="flex flex-row gap-10 p-3 justify-center items-start">
+      <div className="flex w-full flex-col md:flex-row gap-10 p-3 justify-center items-start">
         <ParticipantsTable onDelete={fetchParticipants} participants={reactParticipants} />
         <ParticipationPieChart participants={reactParticipants} />
       </div>
-    </>
+    </div>
   );
 }
 

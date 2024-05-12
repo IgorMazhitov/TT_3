@@ -82,7 +82,7 @@ export default function ParticipantsTable({
         </div>
       }
       aria-label="Example static collection table"
-      className=" w-1/2 h-1/2"
+      className="w-full md:w-1/2"
     >
       <TableHeader>
         <TableColumn>Name</TableColumn>
