@@ -1,14 +1,14 @@
 import ParticipantsTable from "../components/participantsTableComponent";
 import {
-  INewParticipant,
   IParticipant,
-} from "../src/app/interfaces/participant.interface";
+} from "../src/app/interfaces/participants/participant.interface";
 import { useState } from "react";
 import axios from "axios";
 import ParticipationPieChart from "../components/participantsChartPieComponent";
 import CreateParticipant from "../components/createParticipantComponent";
 import "../src/app/globals.css";
 import { addParticipant, getParticipants } from "@/api/participationApi/participationApi";
+import { CreateNewParticipantDto } from "@/app/interfaces/participants/participantsApi.interface";
 
 interface IParticipationProps {
   participants: IParticipant[];
@@ -17,7 +17,7 @@ interface IParticipationProps {
 export default function Participation({ participants }: IParticipationProps) {
   const [reactParticipants, setReactParticipants] =
     useState<IParticipant[]>(participants);
-  const onAddParticipant = async (participant: INewParticipant) => {
+  const onAddParticipant = async (participant: CreateNewParticipantDto) => {
     try {
       await addParticipant(participant);
       await fetchParticipants();

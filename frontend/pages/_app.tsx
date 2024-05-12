@@ -1,6 +1,7 @@
 import {
   Link,
   Navbar,
+  NavbarBrand,
   NavbarContent,
   NavbarItem,
   NextUIProvider,
@@ -20,11 +21,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   ];
   return (
     <NextUIProvider>
-      <Navbar>
+      <Navbar className=" bg-gray-700">
+        <NavbarBrand>
+          <p className="font-bold text-inherit text-slate-200">Testing</p>
+        </NavbarBrand>
         <NavbarContent>
           {pages.map((page) => (
             <NavbarItem key={page.title}>
-              <Link href={page.link}>{page.title}</Link>
+              <Link className=" text-slate-200" href={page.link}>
+                {page.title}
+              </Link>
             </NavbarItem>
           ))}
         </NavbarContent>

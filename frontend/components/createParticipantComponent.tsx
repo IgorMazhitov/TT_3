@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { INewParticipant } from "../src/app/interfaces/participant.interface";
 import { Button, Input } from "@nextui-org/react";
+import { CreateNewParticipantDto } from "@/app/interfaces/participants/participantsApi.interface";
 
 interface CreateParticipantProps {
-  addNew: (participant: INewParticipant) => void;
+  addNew: (participant: CreateNewParticipantDto) => void;
 }
 
 export default function CreateParticipant({ addNew }: CreateParticipantProps) {

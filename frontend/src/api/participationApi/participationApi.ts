@@ -1,4 +1,4 @@
-import { INewParticipant } from "@/app/interfaces/participant.interface";
+import { CreateNewParticipantDto } from "@/app/interfaces/participants/participant.interface";
 import { apiURL } from "../commonApi/api";
 import axios from "axios";
 
@@ -11,7 +11,7 @@ export const getParticipants = async () => {
   }
 };
 
-export const addParticipant = async (participant: INewParticipant) => {
+export const addParticipant = async (participant: CreateNewParticipantDto) => {
   try {
     const response = await axios.post(
       `${apiURL}/participation/add`,

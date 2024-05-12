@@ -1,5 +1,5 @@
-import { Doughnut, Pie } from 'react-chartjs-2';
-import { IParticipant } from '../src/app/interfaces/participant.interface';
+import { Doughnut } from 'react-chartjs-2';
+import { IParticipant } from '../src/app/interfaces/participants/participant.interface';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, plugins } from "chart.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
