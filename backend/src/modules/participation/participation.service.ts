@@ -1,7 +1,7 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Participants } from 'src/entities/participants.entity';
-import { Percentage } from 'src/entities/percentage.entity';
+import { Participants } from '../../entities/participants.entity';
+import { Percentage } from '../../entities/percentage.entity';
 import { Repository } from 'typeorm';
 import { CreateNewParticipantDto } from './dtos/create-participant.dto';
 
@@ -26,7 +26,7 @@ export class ParticipationService {
   async addParticipant(request: CreateNewParticipantDto) {
     try {
       let currentPercentage: Percentage =
-        (await this.percentageRepository.findOneBy({ id: 1 })) ||
+        (await this.percentageRepository.findOne({ where: { id: 1 } })) ||
         (await this.percentageRepository.save({ value: 0 }));
 
       const isParticipantExist = await this.participantsRepository.findOne({
@@ -69,12 +69,15 @@ export class ParticipationService {
 
   async deleteParticipant(id: number) {
     try {
-      const participant = await this.participantsRepository.findOneBy({ id });
+      const participant = await this.participantsRepository.findOne({
+        where: { id },
+      });
       if (!participant) {
         throw new HttpException('Participant not found', 404);
       }
 
-      let currentPercentage: Percentage = await this.percentageRepository.findOneBy({id: 1});
+      let currentPercentage: Percentage =
+        await this.percentageRepository.findOne({ where: { id: 1 } });
 
       let newPercentage = currentPercentage.value - participant.participation;
 
