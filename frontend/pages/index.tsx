@@ -28,6 +28,20 @@ export default function Home() {
           </h2>
         </CardBody>
       </Card>
+      <Card>
+        <CardBody>
+          <h2 className="text-xl text-gray-900">
+              100% Tests coverage (except modules, they should be tested in E2E testing)
+          </h2>
+        </CardBody>
+      </Card>
+      <Card>
+        <CardBody>
+          <h2 className="text-xl text-gray-900">
+              Responsive tailwind design (try developers tools and different resolutions)
+          </h2>
+        </CardBody>
+      </Card>
       <Spacer y={5} />
       <Card>
         <CardBody>
